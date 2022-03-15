@@ -46,10 +46,21 @@ public class Produto {
 	private BigDecimal preco;
 	
 	private String foto;
+	
+	@Column(columnDefinition = "integer default 0") // 
+	private int curtir;
+    
 
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
+	
+	
+
 
 
 	public Long getId() {
@@ -123,5 +134,24 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public int getCurtir() {
+		return curtir;
+	}
+
+	public void setCurtir(int curtir) {
+		this.curtir = curtir;
+	}
+	
+	
+	
 
 }
